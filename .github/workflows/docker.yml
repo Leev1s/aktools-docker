@@ -3,7 +3,7 @@ name: Docker Build & Push
 on:
   workflow_dispatch:
   schedule:
-    - cron: '0 6 * * *'
+    - cron: '0 6 * * 1,4'
     
 jobs:
   docker:
@@ -26,4 +26,6 @@ jobs:
         with:
           platforms: linux/amd64,linux/arm64
           push: true
-          tags: lev1s/aktools:latest
+          tags: |
+            lev1s/aktools:latest
+            lev1s/aktools:${{ github.sha }}
