@@ -5,6 +5,18 @@ This repo is a auto builder for aktools docker image. Use default Dockerfile and
 ```shell
 docker pull lev1s/aktools
 ```
+```shell
+# compose.yaml
+version: "3.8"
+services:
+  aktools:
+    container_name: aktools
+    image: lev1s/aktools:latest
+    ports:
+      - 8080:8080
+    network_mode: bridge
+    restart: unless-stopped
+```
 
 [![PyPI - Python Version](https://img.shields.io/pypi/pyversions/akshare.svg)](https://pypi.org/project/akshare/)
 [![PyPI](https://img.shields.io/pypi/v/aktools.svg)](https://pypi.org/project/aktools/)
